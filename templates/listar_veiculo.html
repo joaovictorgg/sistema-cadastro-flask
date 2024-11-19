@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4 text-dark">Listagem de Veículos</h2>
+<div class="row">
+    {% for veiculo in veiculos %}
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+            {% if veiculo.foto %}
+            <img src="{{ url_for('static', filename=veiculo.foto) }}" class="card-img-top" alt="{{ veiculo.modelo }}" style="height: 200px; object-fit: cover;">
+            {% else %}
+            <img src="https://via.placeholder.com/400x200.png?text=Sem+Imagem" class="card-img-top" alt="Sem imagem disponível" style="height: 200px; object-fit: cover;">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ veiculo.marca }} {{ veiculo.modelo }}</h5>
+                <p class="card-text">
+                    <strong>Placa:</strong> {{ veiculo.placa }}<br>
+                    <strong>Ano:</strong> {{ veiculo.ano }}<br>
+                    <strong>Preço:</strong> R$ {{ veiculo.preco }}<br>
+                </p>
+                <a href="{{ url_for('delete_veiculo', placa=veiculo.placa) }}" class="btn btn-danger btn-sm" onclick="return confirm('Confirma exclusão do veículo?')">Excluir</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="col-12">
+        <div class="alert alert-warning" role="alert">
+            Nenhum veículo encontrado!
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

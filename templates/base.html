@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro</title>
+
+    <!-- Link para Google Fonts (Fonte mais bonita) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Link para o FontAwesome (ícones) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- Link para o Bootstrap (Estilos) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+        }
+        .navbar {
+            background-color: #343a40; /* Cor escura para a navbar */
+        }
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: #ffdd57; /* Cor dourada para a logo */
+            font-size: 1.8rem;
+        }
+        .navbar-brand i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        .nav-link {
+            color: #ffffff !important;
+        }
+        .nav-link:hover {
+            color: #ffdd57 !important;
+        }
+
+        /* Ajuste para dropdowns em dispositivos móveis */
+        .dropdown-menu {
+            min-width: 250px; /* Aumenta a largura para evitar corte */
+        }
+
+        /* Para evitar que o dropdown ultrapasse a tela em dispositivos móveis */
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: relative;
+                right: 0; /* Alinha a direita para evitar que o dropdown fique fora da tela */
+            }
+        }
+
+        /* Ajuste para os dropdowns ficarem alinhados à esquerda */
+        .navbar-nav {
+            margin-left: 0; /* Remove qualquer margem à esquerda */
+        }
+        .navbar-nav .nav-item {
+            padding-right: 20px; /* Distância entre os itens */
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <!-- Logo com ícone -->
+            <a class="navbar-brand" href="{{ url_for('index') }}" ><i class="fas fa-cogs"></i>Sistema de Cadastro</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Alinhar os dropdowns à esquerda -->
+                <ul class="navbar-nav">
+                    <!-- Dropdown para Usuários -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUsuario" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Usuários
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownUsuario">
+                            <li><a class="dropdown-item" href="{{ url_for('lista_usuarios') }}">Listar Usuários</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('cadastro') }}">Cadastrar Usuário</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Dropdown para Veículos -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownVeiculo" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Veículos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownVeiculo">
+                            <li><a class="dropdown-item" href="{{ url_for('lista_veiculos') }}">Listar Veículos</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('cadastro_veiculo') }}">Cadastrar Veículo</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Script Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+ 

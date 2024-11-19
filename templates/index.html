@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Banner de boas-vindas -->
+    <div class="jumbotron text-center bg-primary text-white rounded-3 p-5">
+        <h1 class="display-4">Bem-vindo ao Sistema de Cadastro!</h1>
+        <p class="lead">Gerencie usuários e veículos de maneira fácil e eficiente.</p>
+        <hr class="my-4">
+        <p>Com o nosso sistema, você pode cadastrar, listar e excluir usuários e veículos rapidamente.</p>
+        <a class="btn btn-light btn-lg" href="{{ url_for('cadastro') }}" role="button">Cadastrar Usuário</a>
+        <a class="btn btn-light btn-lg" href="{{ url_for('cadastro_veiculo') }}" role="button">Cadastrar Veículo</a>
+    </div>
+
+    <!-- Seção sobre o sistema -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Como Funciona?</h2>
+        <div class="row">
+            <!-- Card 1: Cadastro de Usuários -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="static/uploads/homem-usuario.png" class="card-img-top" width="12px" alt="Cadastro de Usuários">
+                    <div class="card-body">
+                        <h5 class="card-title">Cadastro de Usuários</h5>
+                        <p class="card-text">Cadastre novos usuários com facilidade. Defina informações como nome, e-mail e senha.</p>
+                        <a href="{{ url_for('cadastro') }}" class="btn btn-primary">Cadastrar Usuário</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Cadastro de Veículos -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="static/uploads/speedrace.png" class="card-img-top" alt="Cadastro de Veículos">
+                    <div class="card-body">
+                        <h5 class="card-title">Cadastro de Veículos</h5>
+                        <p class="card-text">Registre veículos com detalhes como placa, marca, modelo e preço.</p>
+                        <a href="{{ url_for('cadastro_veiculo') }}" class="btn btn-primary">Cadastrar Veículo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Listagem de Usuários -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="static/uploads/homem-usuario.png" class="card-img-top" alt="Listagem de Usuários">
+                    <div class="card-body">
+                        <h5 class="card-title">Listagem de Usuários</h5>
+                        <p class="card-text">Visualize e administre os usuários cadastrados no sistema.</p>
+                        <a href="{{ url_for('lista_usuarios') }}" class="btn btn-primary">Ver Usuários</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção de Benefícios -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Benefícios do Sistema</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                <h4>Fácil Gerenciamento</h4>
+                <p>Com apenas alguns cliques, você pode cadastrar, listar e excluir registros.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-car fa-3x text-primary mb-3"></i>
+                <h4>Cadastro de Veículos</h4>
+                <p>Cadastre veículos de forma prática com informações detalhadas sobre cada um.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-lock fa-3x text-primary mb-3"></i>
+                <h4>Segurança Garantida</h4>
+                <p>O sistema utiliza criptografia para manter as senhas de usuários seguras.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

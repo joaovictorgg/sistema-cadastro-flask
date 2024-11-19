@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4 text-dark">Listagem de Usuários</h2>
+<div class="row">
+    {% for usuario in usuarios %}
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ usuario.nome }}</h5>
+                <p class="card-text">Email: {{ usuario.email }}</p>
+                <a href="mailto:{{ usuario.email }}" class="btn btn-info btn-sm">Enviar Email</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="col-12">
+        <div class="alert alert-warning" role="alert">
+            Nenhum usuário encontrado!
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

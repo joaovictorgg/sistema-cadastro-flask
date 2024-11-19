@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4 text-dark">Cadastrar Veículo</h2>
+<form action="{{ url_for('cadastro_veiculo') }}" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="placa" class="form-label">Placa</label>
+        <input type="text" class="form-control" id="placa" name="placa" required>
+    </div>
+    <div class="mb-3">
+        <label for="marca" class="form-label">Marca</label>
+        <input type="text" class="form-control" id="marca" name="marca" required>
+    </div>
+    <div class="mb-3">
+        <label for="modelo" class="form-label">Modelo</label>
+        <input type="text" class="form-control" id="modelo" name="modelo" required>
+    </div>
+    <div class="mb-3">
+        <label for="ano" class="form-label">Ano</label>
+        <input type="number" class="form-control" id="ano" name="ano" required>
+    </div>
+    <div class="mb-3">
+        <label for="preco" class="form-label">Preço</label>
+        <input type="text" class="form-control" id="preco" name="preco" required>
+    </div>
+    <div class="mb-3">
+        <label for="foto" class="form-label">Foto</label>
+        <input type="file" class="form-control" id="foto" name="foto" required>
+    </div>
+    <button type="submit" class="btn btn-info">Cadastrar</button>
+</form>
+{% endblock %}
